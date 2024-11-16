@@ -45,4 +45,32 @@ class Pattern {
   
   // Initialize the switching time of the lights
   let yellowStartTime, redStartTime, pinkStartTime;
+
+  function setup() {
+    createCanvas(900, 900);
+    strokeWeight(1.5);
+    background(100,100,100);
+    side = 30;
   
+    yellow = color(236, 212, 42);
+    blue = color(68, 104, 178);
+    grey = color(217, 218, 212);
+    red = color(165, 57, 45);
+    darkgery = color(114, 113, 113);
+  
+    let colors = [yellow, blue, grey, red];
+  
+    let yPositions = [105, 285, 405, 585, 765];
+    let xPositions = [105, 225, 735, 855];
+  
+    let pattern = new Pattern(side, colors);
+  
+    pattern.drawVerticalPattern(xPositions, yPositions);
+    pattern.drawHorizontalPattern(xPositions, yPositions);
+  
+    noStroke();
+  
+    yellowStartTime = millis();
+    redStartTime = millis();
+    pinkStartTime = millis();
+  }
